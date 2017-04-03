@@ -5,6 +5,7 @@
 # Random number generation for simulating a binomial distribution
 N = 10000 #number of trials
 M = 0
+set.seed(10)
 for (i in 1:N) {
   x1 <- sample(0:1, 30, replace=T)
   if (sum(x1) >= 22) {
