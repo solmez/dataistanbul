@@ -4,8 +4,8 @@
 # Using bootstrapping to get a sense of variability in the coefficients (intercept and slope)
 # of linear regression analysis. We'll compute the confidence intervals on both regression coeff's. 
 #
-windsp <- c(8.1, 8.4, 8.8, 8.7, 9, 9.1, 9.2, 9.3, 9.4, 9.6, 9.9, 10, 10, 10.5, 10.6, 10.6, 11.2, 11.8, 12.6)
-height <- c(21, 19, 18, 16, 15, 17, 17, 17, 19, 14, 14, 15, 11, 12, 12, 13, 10, 8, 9)
+windsp <- c(8.1, 8.4, 8.7, 8.8, 9, 9.1, 9.2, 9.3, 9.4, 9.6, 9.9, 10, 10, 10.5, 10.6, 10.6, 11.2, 11.8, 12.6)
+height <- c(21, 19, 16, 18, 15, 17, 17, 17, 19, 14, 14, 15, 11, 12, 12, 13, 10, 8, 9)
 HWdata <- as.data.frame(cbind(height,windsp)) #needed for the boot pckg
 fit0 <- lm(height ~ windsp, data=HWdata)
 print(summary(fit0))
