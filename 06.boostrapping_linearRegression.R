@@ -6,7 +6,7 @@
 #
 windsp <- c(8.1, 8.4, 8.8, 8.7, 9, 9.1, 9.2, 9.3, 9.4, 9.6, 9.9, 10, 10, 10.5, 10.6, 10.6, 11.2, 11.8, 12.6)
 height <- c(21, 19, 18, 16, 15, 17, 17, 17, 19, 14, 14, 15, 11, 12, 12, 13, 10, 8, 9)
-HWdata <- as.data.frame(cbind(height,windsp))
+HWdata <- as.data.frame(cbind(height,windsp)) #needed for the boot pckg
 fit0 <- lm(height ~ windsp, data=HWdata)
 print(summary(fit0))
 plot(windsp,height, xlab="Wind Speed", ylab="Height", pch=16, col="red")
@@ -46,9 +46,6 @@ print(summary(boot(HWdata, boot.fn, R=Nreps)))
 #
 smoothScatter(b1,b0, xlab="slope", ylab="intercept")
 points(x=fit0$coefficients[[2]], y=fit0$coefficients[[1]], pch=16, col="red")
-
-df <- data.frame(b0,b1)
-jointplot(data=df, x=",intercept", y="slope", kind="kde")
 
 scatterhist <- function(x, y, xlab = "", ylab = "", plottitle="", 
                         xsize=1, cleanup=TRUE,...){
